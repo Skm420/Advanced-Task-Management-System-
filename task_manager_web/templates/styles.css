@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>All Functions</title>
+</head>
+<body style="background-color: #F0F8FF;">
+    <h2>All Functions</h2>
+    <ul>
+        <li><a href="{{ url_for('signup_page') }}">Signup</a></li>
+        <li><a href="{{ url_for('login_page') }}">Login</a></li>
+        <li><a href="{{ url_for('create_task_page') }}">Create Task</a></li>
+        <li><a href="{{ url_for('update_task_page') }}">Update Task</a></li>
+    </ul>
+</body>
+</html>

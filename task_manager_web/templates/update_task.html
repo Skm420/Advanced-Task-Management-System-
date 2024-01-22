@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='styles.css') }}">
+    <style>
+        body.update-task {
+            background-color: #98FB98; /* Set your preferred background color */
+            font-family: 'Arial', sans-serif;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+
+        .update-task-container {
+            background-color: #FFF;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            padding: 20px;
+            width: 300px;
+            text-align: center;
+        }
+
+        h2 {
+            color: #333;
+        }
+
+        form {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        label {
+            margin: 10px 0;
+            color: #333;
+        }
+
+        input {
+            padding: 10px;
+            margin: 5px 0;
+            width: 100%;
+            box-sizing: border-box;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+        }
+
+        input[type="submit"] {
+            background-color: #4CAF50;
+            color: #FFF;
+            cursor: pointer;
+        }
+    </style>
+    <title>Update Task</title>
+</head>
+<body class="update-task">
+    <div class="update-task-container">
+        <h2>Update Task</h2>
+        <form method="post" action="{{ url_for('update_task_page') }}">
+            <label for="completed">Completed Task:</label>
+            <input type="text" name="completed" required>
+            
+            <label for="ongoing">Ongoing Task:</label>
+            <input type="text" name="ongoing" required>
+            
+            <label for="not_started">Not Started Task:</label>
+            <input type="text" name="not_started" required>
+            
+            <input type="submit" name="update_task" value="Update Task">
+        </form>
+    </div>
+</body>
+</html>

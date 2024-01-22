@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='styles.css') }}">
+    <style>
+        body.login {
+            background-color: #F08080; /* Set your preferred background color */
+            font-family: 'Arial', sans-serif;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+
+        .login-container {
+            background-color: #FFF;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            padding: 20px;
+            width: 300px;
+            text-align: center;
+        }
+
+        h2 {
+            color: #333;
+        }
+
+        form {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        label {
+            margin: 10px 0;
+            color: #333;
+        }
+
+        input {
+            padding: 10px;
+            margin: 5px 0;
+            width: 100%;
+            box-sizing: border-box;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+        }
+
+        input[type="submit"] {
+            background-color: #4CAF50;
+            color: #FFF;
+            cursor: pointer;
+        }
+    </style>
+    <title>Login</title>
+</head>
+<body class="login">
+    <div class="login-container">
+        <h2>Login</h2>
+        <form method="post" action="{{ url_for('login_page') }}">
+            <label for="username">Username:</label>
+            <input type="text" name="username" required>
+            
+            <label for="password">Password:</label>
+            <input type="password" name="password" required>
+            
+            <input type="submit" name="login" value="Login">
+        </form>
+    </div>
+</body>
+</html>

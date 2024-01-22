@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Task Manager</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            margin: 20px;
+        }
+        h2 {
+            color: #333;
+        }
+        p {
+            color: #555;
+        }
+        h3 {
+            color: #333;
+            margin-top: 20px;
+        }
+        ul {
+            list-style-type: none;
+            padding: 0;
+        }
+        li {
+            background-color: #fff;
+            border: 1px solid #ddd;
+            margin: 5px 0;
+            padding: 10px;
+            border-radius: 5px;
+        }
+        form {
+            margin-top: 10px;
+        }
+        label {
+            display: block;
+            margin-bottom: 5px;
+            color: #333;
+        }
+        input[type="text"] {
+            width: 300px;
+            padding: 8px;
+            margin-bottom: 10px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+        }
+        input[type="submit"] {
+            background-color: #4caf50;
+            color: white;
+            padding: 10px 15px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+    <h2>Welcome, {{ username }}!</h2>
+    <p>{{ message }}</p>
+    
+    <h3>Tasks:</h3>
+    <ul>
+        {% for task in tasks %}
+            <li>{{ task }}</li>
+        {% endfor %}
+    </ul>
+
+    <h3>Task Update Information:</h3>
+    <ul>
+        {% for update_info in task_update_info %}
+            <li>{{ update_info }}</li>
+        {% endfor %}
+    </ul>
+
+    <h3>Add Task:</h3>
+    <form method="post" action="{{ url_for('task_manager', username=username) }}">
+        <label for="task_name">Task Name:</label>
+        <input type="text" id="task_name" name="task_name" required>
+        <label for="target_time">Target Time:</label>
+        <input type="text" id="target_time" name="target_time" required>
+        <input type="submit" name="add_task" value="Add Task">
+    </form>
+
+    <h3>Update Task:</h3>
+    <form method="post" action="{{ url_for('task_manager', username=username) }}">
+        <label for="completed_task">Completed Task:</label>
+        <input type="text" id="completed_task" name="completed_task" required>
+        <label for="ongoing_task">Ongoing Task:</label>
+        <input type="text" id="ongoing_task" name="ongoing_task" required>
+        <label for="not_started_task">Not Started Task:</label>
+        <input type="text" id="not_started_task" name="not_started_task" required>
+        <input type="submit" name="update_task" value="Update Task">
+    </form>
+
+    <h3>Remove Task:</h3>
+    <form method="post" action="{{ url_for('task_manager', username=username) }}">
+        <label for="task_name_to_remove">Task Name to Remove:</label>
+        <input type="text" id="task_name_to_remove" name="task_name_to_remove" required>
+        <input type="submit" name="remove_task" value="Remove Task">
+    </form>
+</body>
+</html>
